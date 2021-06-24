@@ -1,0 +1,6 @@
+insights_insert_key: xxx
+collector_url: https://insights-collector.newrelic.com/v1/accounts/xxx/events
+#proxy_host: 
+#proxy_port: 
+#proxy_user: 
+#proxy_password: 

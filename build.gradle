@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+	id 'eclipse'
+}
+
+group = 'com.newrelic.labs'
+version = '1.0.0'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    
+	implementation group: 'com.beust', name: 'jcommander', version: '1.81'
+	
+	implementation group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
+	
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.3'
+	
+	implementation group: 'org.yaml', name: 'snakeyaml', version: '1.29'
+
+	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+
+	implementation group: 'com.typesafe', name: 'config', version: '1.4.1'
+
+	implementation group: 'javax.xml.ws', name: 'jaxws-api', version: '2.3.1'
+	
+	implementation 'com.sun.xml.ws:jaxws-rt:2.3.4'
+
+	implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.31'
+
+	implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+
+    testImplementation 'junit:junit:4.12'
+}
+
+task allInOneJar(type: Jar) {
+	manifest {
+        attributes "Main-Class": "com.newrelic.labs.infra.datapower.Main"
+    }
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+	archiveName 'nri-datapower.jar'
+	destinationDir = file("$distsDir")
+	from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+	with jar
+}
+
+jar.enabled=false
+assemble.dependsOn "allInOneJar"

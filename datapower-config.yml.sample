@@ -1,0 +1,13 @@
+integration_name: com.newrelic.labs.datapower
+instances:
+  - name: datapower-metrics
+    command: metrics
+    arguments:
+      host: localhost
+      port: 5550
+      username: admin
+      password: admin
+      domains: default, default
+    labels: 
+      environment: production
+      role: load_balancer

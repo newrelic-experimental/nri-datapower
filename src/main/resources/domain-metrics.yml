@@ -1,0 +1,28 @@
+collect:
+- metric_class: WSOperationMetrics
+  event_type: DatapowerWSOperationMetricsSample
+  metrics:
+  - metric_name: ServiceEndpoint
+    metric_type: attribute
+  - metric_name: Operation
+    metric_type: attribute
+  - metric_name: MaxResponseTime
+    metric_type: gauge
+  - metric_name: LastResponseTime
+    metric_type: gauge
+  - metric_name: MaxRequestSize
+    metric_type: gauge
+  - metric_name: LastRequestSize
+    metric_type: gauge
+  - metric_name: MaxResponseSize
+    metric_type: gauge
+  - metric_name: LastResponseSize
+    metric_type: gauge
+  - metric_name: NumberOfRequests
+    metric_type: delta
+  - metric_name: NumberOfFailedRequests
+    metric_type: gauge
+  - metric_name: NumberOfSuccessfulRequests
+    metric_type: delta
+  - metric_name: ServiceTime
+    metric_type: gauge

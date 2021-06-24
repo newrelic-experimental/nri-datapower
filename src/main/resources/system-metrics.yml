@@ -1,0 +1,56 @@
+collect:
+- metric_class: CPUUsage
+  event_type: DatapowerCPUUsageSample
+  metrics:
+  - metric_name: oneMinute
+    metric_type: gauge
+- metric_class: MemoryStatus
+  event_type: DatapowerMemoryStatusSample
+  metrics:
+  - metric_name: TotalMemory
+    metric_type: gauge
+  - metric_name: UsedMemory
+    metric_type: gauge
+  - metric_name: FreeMemory
+    metric_type: gauge
+  - metric_name: ReqMemory
+    metric_type: gauge
+- metric_class: TemperatureSensors
+  event_type: DatapowerTemperatureSensorsSample
+  metrics:
+  - metric_name: Name
+    metric_type: attribute
+  - metric_name: ReadingStatus
+    metric_type: attribute
+  - metric_name: Value
+    metric_type: gauge
+- metric_class: EnvironmentalFanSensors
+  event_type: DatapowerEnvironmentalFanSensorsSample
+  metrics:
+  - metric_name: FanID
+    metric_type: attribute
+  - metric_name: ReadingStatus
+    metric_type: attribute
+  - metric_name: FanSpeed
+    metric_type: gauge
+- metric_class: OtherSensors
+  event_type: DatapowerOtherSensorsSample
+  metrics: 
+  - metric_name: Name
+    metric_type: attribute
+  - metric_name: ReadingStatus
+    metric_type: attribute
+- metric_class: ReceiveKbpsThroughput
+  event_type: DatapowerReceiveKbpsThroughputSample
+  metrics: 
+  - metric_name: Interface
+    metric_type: attribute
+  - metric_name: oneMinute
+    metric_type: gauge
+- metric_class: TransmitKbpsThroughput
+  event_type: DatapowerTransmitKbpsThroughputSample
+  metrics: 
+  - metric_name: Interface
+    metric_type: attribute
+  - metric_name: oneMinute
+    metric_type: gauge
