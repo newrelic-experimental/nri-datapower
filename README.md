@@ -10,7 +10,7 @@ The New Relic infrastructure integration for Datapower monitors IBM datapower de
 - Copy datapower-config.yml.sample to datapower-config.yml
 - Copy newrelic-insights.yml.sample to newrelic-insights.yml
 - Enter datapower device connection information in the ***datapower-config.yml*** file. Create as many instances as needed and enter the datapower host, port, username, password for each datapower device to connect and query for metric data. Also enter the comma separated list of datapower domains to query for domain metrics.
-- Enter the newrelic API key for the insights_insert_key property and update the account ID for the collector_url property in the ***newrelic-insights.yml*** (This is only needed for running the monitor in standalone mode- that is, not as a NewRelic infrastructure integration) 
+- Enter the newrelic API key for the insights_insert_key property and update the account ID for the collector_url property in the ***newrelic-insights.yml*** (This is only needed for running the monitor in standalone mode- that is, not as a NewRelic infrastructure integration). If applicable, also uncomment and enter the HTTP proxy information.
 - Edit the JAVA_HOME and APP_HOME properties in the following two scripts in the ***scripts/*** folders
 	1. install-datapower-certificate.sh
 	2. start.sh
