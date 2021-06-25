@@ -4,7 +4,7 @@ JAVA_HOME=/usr
 
 MAIN_CLASS=com.newrelic.labs.infra.datapower.InstallCert
 
-APP_HOME={{app-home-folder}}
+APP_HOME={{nri-datapower-home}}
 
 # ***********************************************
 # ***********************************************

@@ -1,28 +1,36 @@
 [![New Relic Experimental header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#new-relic-experimental)
 
-# [Project Name] [build badges go here when available]
+# [nri-datapower]
 
->[Brief description - what is the project and value does it provide? How often should users expect to get releases? How is versioning set up? Where does this project want to go?]
+The New Relic infrastructure integration for Datapower monitors IBM datapower devices by periodically querying the XML management interface and reporting metric data into New Relic.
 
 ## Installation
 
-> [Include a step-by-step procedure on how to get your code installed. Be sure to include any third-party dependencies that need to be installed separately]
+- Create a folder {nri-datapower} and unzip the contents of nri-datapower.zip into it
+- Copy datapower-config.yml.sample to datapower-config.yml
+- Copy newrelic-insights.yml.sample to newrelic-insights.yml
+- Enter datapower device connection information in the ***datapower-config.yml*** file. Create as many instances as needed and enter the datapower host, port, username, password for each datapower device to connect and query for metric data. Also enter the comma separated list of datapower domains to query for domain metrics.
+- Enter the newrelic API key for the insights_insert_key property and update the account ID for the collector_url property in the ***newrelic-insights.yml*** (This is only needed for running the monitor in standalone mode- that is, not as a NewRelic infrastructure integration) 
+- Edit the JAVA_HOME and APP_HOME properties in the following two scripts in the ***scripts/*** folders
+	1. install-datapower-certificate.sh
+	2. start.sh
+- Execute the script for downloading and installing the datapower server certificate into the JRE trusted certificate store
+	```cmd 
+	install-datapower-certificate.sh {datapower-host:port} {jre-keystore-passphrase}
+	```
 
-## Getting Started
+## Getting Started (Standalone Mode)
 
->[Simple steps to start working with the software similar to a "Hello World"]
+- Execute the start script to start the nri-datapower monitor in standalone mode
+	```cmd 
+	start.sh 
+	```
+	
+## Getting Started (New Relic Infrastructure Integration)
 
-## Usage
 
->[**Optional** - Include more thorough instructions on how to use the software. This section might not be needed if the Getting Started section is enough. Remove this section if it's not needed.]
+	
 
-## Building
-
->[**Optional** - Include this section if users will need to follow specific instructions to build the software from source. Be sure to include any third party build dependencies that need to be installed separately. Remove this section if it's not needed.]
-
-## Testing
-
->[**Optional** - Include instructions on how to run tests if we include tests with the codebase. Remove this section if it's not needed.]
 
 ## Support
 
@@ -49,6 +57,6 @@ If you believe you have found a security vulnerability in this project or any of
 
 ## License
 
-[Project Name] is licensed under the [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.txt) License.
+[nri-datapower] is licensed under the [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.txt) License.
 
->[If applicable: [Project Name] also uses source code from third-party libraries. You can find full details on which libraries are used and the terms under which they are licensed in the third-party notices document.]
+>[If applicable: [nri-datapower] also uses source code from third-party libraries. You can find full details on which libraries are used and the terms under which they are licensed in the third-party notices document.]
